@@ -12,6 +12,7 @@ public class ConsumerMain {
         ClassPathXmlApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("applicationContext-consumer.xml");
 
+        // 测试调用
         UserService userService = (UserService) applicationContext.getBean("userService");
 
         boolean login = userService.login("小明", "123456");
