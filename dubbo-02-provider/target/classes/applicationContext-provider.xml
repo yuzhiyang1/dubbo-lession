@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <!--  设置dubbo应用的名称 -->
+    <!--  application标签的作用是定义一个 Dubbo 应用 -->
+    <dubbo:application name="dubbo-02-provider"/>
+
+    <!-- 定义网络通信协议 为dubbo协议 端口号为20880 -->
+    <!-- dubbo协议是dubbo框架自己的协议，20880端口号是dubbo默认的端口号 -->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!-- Spring的bean配置 -->
+    <bean id="userService" class="com.yzy.service.UserServiceImpl"/>
+
+    <!-- 将userService注入到 dubbo 中，并命名 -->
+    <dubbo:service interface="com.yzy.service.UserService" ref="userService"/>
+
+</beans>
