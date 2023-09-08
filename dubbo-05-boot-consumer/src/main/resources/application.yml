@@ -1,1 +1,7 @@
+spring:
+  application:
+    name: DUBBO-O5-BOOT-CONSUMER
 
+dubbo:
+  application:
+    qos-enable: false #关闭qos 防止警告

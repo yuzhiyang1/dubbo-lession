@@ -1,1 +1,10 @@
+spring:
+  application:
+    name: DUBBO-04-BOOT-PROVIDER
 
+dubbo:
+  protocol:
+    name: dubbo # 使用dubbo协议
+    port: -1 # -1 表示使用智能配置端口 20880 +1
+  application:
+    name:
