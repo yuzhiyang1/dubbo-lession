@@ -9,12 +9,15 @@
 
     <!-- 定义网络通信协议 为dubbo协议 端口号为20880 -->
     <!-- dubbo协议是dubbo框架自己的协议，20880端口号是dubbo默认的端口号 -->
-    <dubbo:protocol name="dubbo" port="20880"/>
+    <dubbo:protocol name="dubbo" port="20880" serialization="protobuf"/>
 
     <!-- Spring的bean配置 -->
-    <bean id="userService" class="com.yzy.service.UserServiceImpl"/>
+    <!-- <bean id="userService" class="com.yzy.service.UserServiceImpl"/> -->
+    <bean id="helloService" class="com.yzy.service.HelloServiceImpl"/>
 
     <!-- 将userService注入到 dubbo 中，并命名 -->
-    <dubbo:service interface="com.yzy.service.UserService" ref="userService"/>
+    <!-- <dubbo:service interface="com.yzy.service.UserService" ref="userService"/> -->
+
+    <dubbo:service interface="com.yzy.HelloService" ref="helloService"/>
 
 </beans>
