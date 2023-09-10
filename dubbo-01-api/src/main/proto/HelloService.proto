@@ -1,0 +1,29 @@
+// 指定了使用的protobuf语法版本为3。
+syntax = "proto3";
+// 这个选项告诉编译器生成多个文件，每个消息类型生成一个单独的文件。
+option java_multiple_files  = true;
+
+// 指定生成的Java类的包名为"com.yzy"
+option java_package = "com.yzy";
+
+// 指定生成的Java类的名称为"HelloProtocol"，其中包含嵌套的消息类型和服务方法。
+option java_outer_classname = "HelloProtocol";
+
+// 指定生成的Java类的名称为"HelloProtocol"，其中包含嵌套的消息类型和服务方法。
+message HelloRequest{
+  string name = 1;
+}
+
+// 定义了一个名为"HelloResponse"的消息类型，它包含一个字符串类型的字段"result"。
+message HelloResponse {
+  string result = 1;
+}
+
+//定义了一个名为"HelloService"的服务，它包含一个远程过程调用（RPC）方法"sayHello"，
+//该方法接受一个"HelloRequest"参数并返回一个"HelloResponse"结果。
+service HelloService {
+  rpc sayHello (HelloRequest) returns (HelloResponse);
+}
+
+// 通过这些代码，我们可以创建一个protobuf文件，然后使用protobuf编译器将其编译成对应语言的代码，
+// 包括Java类。这样，我们就可以在服务端程序中使用这些生成的类来实现RPC调用和处理请求/响应的功能。

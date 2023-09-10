@@ -11,6 +11,8 @@
 
 
     <!-- 调用外部服务，实现跨服务器调用 -->
-    <dubbo:reference interface="com.yzy.service.UserService" id="userService"
-                     url="dubbo://192.168.1.10:20880/com.yzy.service.UserService"/>
+    <!-- <dubbo:reference interface="com.yzy.service.UserService" id="userService" -->
+    <!--                  url="dubbo://192.168.1.10:20880/com.yzy.service.UserService"/> -->
+    <dubbo:reference interface="com.yzy.HelloService" id="helloService"
+                     url="dubbo://192.168.1.10:20880/com.yzy.HelloService?serialization=protobuf"/>
 </beans>
